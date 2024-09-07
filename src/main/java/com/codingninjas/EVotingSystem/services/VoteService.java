@@ -1,5 +1,7 @@
 package com.codingninjas.EVotingSystem.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +30,9 @@ public class VoteService {
 
         // Save the vote to the database
         voteRepository.save(vote);
+    }
+
+    public List<Vote> getAllVotes(){
+        return voteRepository.findAll();
     }
 }
