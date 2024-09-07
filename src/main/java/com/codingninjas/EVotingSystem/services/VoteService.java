@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codingninjas.EVotingSystem.entities.Election;
 import com.codingninjas.EVotingSystem.entities.Vote;
 import com.codingninjas.EVotingSystem.repositories.VoteRepository;
 
@@ -38,5 +39,12 @@ public class VoteService {
 
     public Long getTotalVotes(){
         return voteRepository.count();
+    }
+
+    public Long getVoteCountForElection(Election election){
+        if (election == null) {
+            throw new IllegalArgumentException("Election cannot be null");
+        }
+        return voteRepository.countByElection(election);
     }
 }
