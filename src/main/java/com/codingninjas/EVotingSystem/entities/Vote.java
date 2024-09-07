@@ -1,5 +1,7 @@
 package com.codingninjas.EVotingSystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Vote {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "election_choice_id", nullable = false)
+    @JsonIgnoreProperties("election")
     private ElectionChoice electionChoice;
 
     public Long getId() {

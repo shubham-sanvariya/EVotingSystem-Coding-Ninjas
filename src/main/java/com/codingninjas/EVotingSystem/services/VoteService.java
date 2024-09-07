@@ -35,4 +35,8 @@ public class VoteService {
     public List<Vote> getAllVotes(){
         return voteRepository.findAll();
     }
+
+    public Long getTotalVotes(){
+        return voteRepository.count();
+    }
 }
