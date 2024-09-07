@@ -26,4 +26,9 @@ public class VoteController {
     public List<Vote> getAllVotes(){
         return voteService.getAllVotes();
     }
+
+    @GetMapping("/count/votes")
+    public Long getTotalVotes(){
+        return voteService.getTotalVotes();
+    }
 }
