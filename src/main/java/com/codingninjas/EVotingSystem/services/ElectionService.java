@@ -1,5 +1,7 @@
 package com.codingninjas.EVotingSystem.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +15,9 @@ public class ElectionService {
 
     public void addElection(Election election){
         electionRepository.save(election);
+    }
+
+    public List<Election> getAllElections(){
+        return electionRepository.findAll();
     }
 }
