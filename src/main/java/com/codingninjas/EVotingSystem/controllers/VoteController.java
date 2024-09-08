@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.codingninjas.EVotingSystem.entities.Election;
+import com.codingninjas.EVotingSystem.entities.ElectionChoice;
 import com.codingninjas.EVotingSystem.entities.Vote;
 import com.codingninjas.EVotingSystem.services.VoteService;
 
@@ -36,5 +37,10 @@ public class VoteController {
     @PostMapping("/count/election/votes")
     public Long getVoteCountForElection(@RequestBody Election election){
         return voteService.getVoteCountForElection(election);
+    }
+
+    @PostMapping("/winner/election")
+    public ElectionChoice getElectionWinner(@RequestBody Election election){
+        return voteService.getWinnerOfElection(election);
     }
 }
