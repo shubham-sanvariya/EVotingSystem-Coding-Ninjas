@@ -20,6 +20,15 @@ public class ElectionChoice {
     @JoinColumn(name = "election_id", nullable = false)
     private Election election;
 
+    public ElectionChoice() {
+    }
+
+    public ElectionChoice(long id, String name, Election election) {
+        this.id = id;
+        this.name = name;
+        this.election = election;
+    }
+
     public Long getId() {
         return id;
     }
