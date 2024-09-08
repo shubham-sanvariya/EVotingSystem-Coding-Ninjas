@@ -29,7 +29,7 @@ public class ElectionChoiceController {
     }
 
     @PostMapping("/count/election/choices")
-    public List<ElectionChoice> getElectionChoicesByElection(@RequestBody Election election){
-        return service.getElectionChoicesByElection(election);
+    public Long getTotalNumberOfChoicesByElection(@RequestBody Election election){
+        return service.getTotalNumberOfChoicesByElection(election);
     }
 }

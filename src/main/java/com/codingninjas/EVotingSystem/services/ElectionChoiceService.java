@@ -27,10 +27,10 @@ public class ElectionChoiceService {
         return repository.findAll();
     }
 
-    public List<ElectionChoice> getElectionChoicesByElection(Election election){
+    public Long getTotalNumberOfChoicesByElection(Election election){
         Election el = electionRepository.findById(election.getId())
             .orElseThrow(() -> new NoSuchElementException("election id not found:"));
             
-        return repository.findElectionChoicesByElection(el.getName());
+        return repository.countByElection(el);
     }
 }
