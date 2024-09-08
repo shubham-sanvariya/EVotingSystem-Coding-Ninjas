@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codingninjas.EVotingSystem.entities.Election;
+import com.codingninjas.EVotingSystem.entities.ElectionChoice;
 import com.codingninjas.EVotingSystem.entities.Vote;
 import com.codingninjas.EVotingSystem.repositories.VoteRepository;
 
@@ -46,5 +47,12 @@ public class VoteService {
             throw new IllegalArgumentException("Election cannot be null");
         }
         return voteRepository.countByElection(election);
+    }
+
+    public ElectionChoice getWinnerOfElection(Election election){
+        if (election == null) {
+            throw new IllegalArgumentException("Election cannot be null");
+        }
+        return voteRepository.findWinnerOfElection(election);
     }
 }
